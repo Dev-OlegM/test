@@ -1,25 +1,27 @@
 "use strict";
 
-// const obj = {
-//     name: "Oleg",
-//     age: 31,
-//     isMarried: false
-// };
+const numberOfFilms = prompt('How many films have you watched?', '');
 
-// console.log(obj.name);
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
 
-// let arr = ['plum.jpeg', 'apple.jpeg', 'fruits.jpeg'];
-// console.log(arr[0]);
 
-// const answer = +prompt("How old are you?", "");
 
-// console.log(answer + 5);
+const a = prompt("Last seen movie?", " "),
+      b = prompt("Score?", ""),
+      c = prompt("Last seen movie?", " "),
+      d = prompt("Score?", "");
 
-const answers = [];
+      
 
-answers[0] = prompt('What is your name?','');
-answers[1] = prompt('How old are you?', '');
-answers[2] = prompt('Gender?', '');
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
-document.write(answers);
+console.log(personalMovieDB);
+
 
