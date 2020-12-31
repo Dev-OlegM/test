@@ -1,27 +1,43 @@
 "use strict";
 
-const numberOfFilms = prompt('How many films have you watched?', '');
+const numberOfFilms = +prompt('How many films have you seen?','');
+
+
 
 const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
+  count: numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false
 };
 
 
+for (let i = 0; i < 2; i++) {
+    const a = prompt('What is your last seen movie?', '');
+    const b = prompt('What is a rate?', '');
 
-const a = prompt("Last seen movie?", " "),
-      b = prompt("Score?", ""),
-      c = prompt("Last seen movie?", " "),
-      d = prompt("Score?", "");
+    if(a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('good');
+    } else {
+        i--;
+        console.log('bad');
+    }
 
-      
-
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-
-console.log(personalMovieDB);
+    
+}
 
 
+if(personalMovieDB.count < 10) {
+    console.log('Not enough movies');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log('You are ordenery watcher!');
+} else if (personalMovieDB.count > 30) {
+    console.log('You love movies');
+} else {
+    console.log('Something goes wrong!');
+}
+
+
+console.log(personalMovieDB.movies);
