@@ -1,7 +1,16 @@
 "use strict";
 
-const numberOfFilms = +prompt('How many films have you seen?','');
+let numberOfFilms;
 
+function start () {
+  numberOfFilms = +prompt('How many films have you seen?','');
+
+  while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+    numberOfFilms = +prompt('How many films have you seen?','');
+  }
+}
+
+start();
 
 
 const personalMovieDB = {
@@ -13,7 +22,9 @@ const personalMovieDB = {
 };
 
 
-for (let i = 0; i < 2; i++) {
+function rememberMyFilms() {
+
+  for (let i = 0; i < 2; i++) {
     const a = prompt('What is your last seen movie?', '');
     const b = prompt('What is a rate?', '');
 
@@ -24,12 +35,15 @@ for (let i = 0; i < 2; i++) {
         i--;
         console.log('bad');
     }
-
-    
+  
+}
 }
 
+rememberMyFilms();
 
-if(personalMovieDB.count < 10) {
+
+function detectPersonalLevel() {
+  if(personalMovieDB.count < 10) {
     console.log('Not enough movies');
 } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
     console.log('You are ordenery watcher!');
@@ -38,6 +52,25 @@ if(personalMovieDB.count < 10) {
 } else {
     console.log('Something goes wrong!');
 }
+}
+
+detectPersonalLevel();
+
+function showMyDb(hidden) {
+    if(!hidden) {
+        console.log(personalMovieDB);
+    }
+}
 
 
 console.log(personalMovieDB.movies);
+
+
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i ++) {
+        personalMovieDB.genres[i - 1] = prompt(`Your favourite genre number ${i}?`);  
+        
+    }
+}
+
+writeYourGenres();
